@@ -14,9 +14,6 @@ function App() {
       clearInterval(interval.current);
     }
 
-    console.log(`numberOfBeats = ${numberOfBeats}`);
-    console.log(`beatsPerMinute = ${beatsPerMinute}`);
-
     interval.current = setInterval(() => setActive(active => (active + 1) % numberOfBeats), 60 / beatsPerMinute * 1000);
   }, [numberOfBeats, beatsPerMinute]);
 
@@ -33,16 +30,32 @@ function App() {
         </div>
       </div>
 
-      <label for="bpm">
-        Beats per Minute
-      </label>
-      <input id="bpm" onChange={(event) => {
-        const number = Number(event.target.value)
-        
-        if (number > 0) {
-          setBeatsPerMinute(number);
-        }
-      }} />
+      
+      <div>
+        <label for="numberOfBeats">
+          Number of beats
+        </label>
+        <input id="numberOfBeats" onChange={(event) => {
+          const number = Number(event.target.value)
+          
+          if (number > 0) {
+            setNumberOfBeats(number);
+          }
+        }} />
+      </div>
+      
+      <div>
+        <label for="bpm">
+          Beats per Minute
+        </label>
+        <input id="bpm" onChange={(event) => {
+          const number = Number(event.target.value)
+          
+          if (number > 0) {
+            setBeatsPerMinute(number);
+          }
+        }} />
+      </div>
 
       <button onClick={handleStopClick}>
         STOP
