@@ -93,7 +93,7 @@ function App() {
       <div className={styles.metronome}>
 
         <div className={styles.bar}>
-          {[...Array(numberOfBeats).keys()].map(index => <div className={clsx(styles.item, index === active && styles.active)} key={index}>
+          {[...Array(numberOfBeats).keys()].map((el, index) => <div className={clsx(styles.item, index === active && styles.active)} key={index}>
             </div>)}
         </div>
       </div>
