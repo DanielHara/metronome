@@ -17,7 +17,18 @@ function App() {
     interval.current = setInterval(() => setActive(active => (active + 1) % numberOfBeats), 60 / beatsPerMinute * 1000);
   }, [numberOfBeats, beatsPerMinute]);
 
-  const handleStopClick = () => {}
+  const handleStopClick = () => {
+    if (interval.current) {
+      clearInterval(interval.current);
+      interval.current = null;
+    }
+  }
+
+  const handleStartClick = () => {
+    if (!interval.current) {
+      interval.current = setInterval(() => setActive(active => (active + 1) % numberOfBeats), 60 / beatsPerMinute * 1000);
+    }
+  }
 
   return (
     <div className={styles.App}>
@@ -32,7 +43,7 @@ function App() {
 
       
       <div>
-        <label for="numberOfBeats">
+        <label htmlFor="numberOfBeats">
           Number of beats
         </label>
         <input id="numberOfBeats" onChange={(event) => {
@@ -45,7 +56,7 @@ function App() {
       </div>
       
       <div>
-        <label for="bpm">
+        <label htmlFor="bpm">
           Beats per Minute
         </label>
         <input id="bpm" onChange={(event) => {
@@ -59,6 +70,10 @@ function App() {
 
       <button onClick={handleStopClick}>
         STOP
+      </button>
+
+      <button onClick={handleStartClick}>
+        START
       </button>
     </div>
   );
