@@ -1,0 +1,27 @@
+* {
+  box-sizing: border-box;
+  font-size: 32px;
+  font-weight: 700;
+}
+
+.App {
+  text-align: center;
+}
+
+.metronome {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.bar {
+  display: flex;
+  justify-content: space-around;
+  margin: 2rem;
+}
+
+.item {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background-color: green;
+}
