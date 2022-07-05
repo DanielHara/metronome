@@ -66,8 +66,8 @@ function App() {
     }
 
     interval.current = setInterval(() => {
-      setActive(active => active < numberOfBeats ? active + 1 : 0);
       snd.play();
+      setActive(active => active < numberOfBeats - 1 ? active + 1 : 0);
     }, 60 / beatsPerMinute * 1000);
   }, [numberOfBeats, beatsPerMinute]);
 
@@ -81,8 +81,8 @@ function App() {
   const handleStartClick = () => {
     if (!interval.current) {
       interval.current = setInterval(() => {
-        setActive(active => active < numberOfBeats ? active + 1 : 0);
         snd.play();
+        setActive(active => active < numberOfBeats - 1? active + 1 : 0);
       }, 60 / beatsPerMinute * 1000);
     }
   }
